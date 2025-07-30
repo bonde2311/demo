@@ -1,0 +1,2152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bond_agreement_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size: 16px;">
+                        <style>
+                            .header {
+                            position: relative;
+                            text-align: center;
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                            min-height: 50px;
+                            }
+                            .header .img1 {
+                            position: absolute;
+                            right: 10px;
+                            top: 0;
+                            padding: 0;
+                            }
+
+                            .header .img1 img {
+                            width: 1cm;
+                            height: 1cm;
+                            border-radius: 50%;
+                            border: 1px solid #ccc;
+                            }
+
+                            .bond-agreement-letter {
+                            font-family: Arial, sans-serif;
+                            margin: 5px; /* Reduced margin to remove extra spacing */
+                            line-height: 1.5;
+                            font-size: 15px;
+                            margin-top: 0 !important; /* Remove extra space at the top */
+                            padding-top: 0 !important; /* Remove extra padding */
+
+                            }
+
+                            .bond-agreement-letter .date {
+                            text-align: right;
+                            }
+
+                        </style>
+                        <div class="header">
+                            <div class="img1">
+                                <img src="hr_contract_custom/static/images/phn.png" alt="Logo 1"/>
+                                <!--                                <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" alt="Company Logo"/>-->
+                            </div>
+                        </div>
+                        <div class="bond-agreement-letter">
+                            <div class="header-content" style="text-align: center;">
+                                <h5 class="text-center my-2">
+                                    <strong>EMPLOYMENT BOND AGREEMENT</strong>
+                                </h5>
+                            </div>
+                            <div class="date">
+                                <strong>
+                                    <p>Date:
+                                        <span t-field="doc.today_date"
+                                              t-options="{&quot;widget&quot;: &quot;date&quot;, &quot;format&quot;: &quot;dd-MM-yyyy&quot;}"/>
+                                    </p>
+                                </strong>
+                            </div>
+                            <p>
+                                This Employment Bond Agreement (here in after referred to as the “Agreement”) is made
+                                and
+                                entered into on this day of
+                                <strong>
+                                    <span t-field="doc.date_start"
+                                          t-options="{&quot;widget&quot;: &quot;date&quot;, &quot;format&quot;: &quot;dd-MM-yyyy&quot;}"/>
+                                </strong>
+
+                                to Date
+                                <strong>
+                                    <span t-field="doc.date_end"
+                                          t-options="{&quot;widget&quot;: &quot;date&quot;, &quot;format&quot;: &quot;dd-MM-yyyy&quot;}"/>
+                                </strong>
+
+                                ,
+                                by and between the following parties:
+                            </p>
+
+                            <p>
+                                <b>1. EMPLOYER</b>
+                            </p>
+                            <p>
+                                <b style="margin-left:30px;">PHN Technology Pvt Ltd.</b>, a company duly incorporated
+                                and existing under the
+                                provisions of the <b>Companies Act, 2013</b>, having its registered corporate office
+                                located at:
+                            </p>
+
+                            <p>
+                                <b>Tower A, Giga Platinum</b>
+                                <br/>
+                                <b>Somnath Nagar Road,</b>
+                                <br/>
+                                <b>Near Akoya Skoda Showroom, Clover Park,</b>
+                                <br/>
+                                <b>Viman Nagar, Pune, Maharashtra – 411014, India</b>
+                            </p>
+                            <p style="margin-left:20px;">
+                                (here in after referred to as the “<b>Employer</b>”, which expression shall, unless
+                                repugnant
+                                to the context or meaning thereof, be deemed to include its <b>successors-in-interest,
+                                authorized assigns, and legal representatives</b>).
+                            </p>
+                            <p>
+                                <b>2. EMPLOYEE</b>
+                            </p>
+                            <p style="margin-left:20px;font-size:17px;">
+                                <b>Name:</b>
+                                <strong>
+                                    <t t-esc="doc.employee_id.name"/>
+                                </strong>
+                                <br/>
+                                <b>Residential Address:</b>
+                                <strong>
+                                    <t t-esc="'%s, %s, %s, %s - %s, %s' % (
+    doc.employee_id.private_street or '',
+    doc.employee_id.private_street2 or '',
+    doc.employee_id.private_city or '',
+    doc.employee_id.private_state_id.name or '',
+    doc.employee_id.private_zip or '',
+    doc.employee_id.private_country_id.name or ''
+)"/>
+
+                                </strong>
+                                <br/>
+
+                            </p>
+                            <p style="margin-left:15px;">(hereinafter referred to as the <b>“Employee”</b>, which
+                                expression shall, unless
+                                repugnant
+                                to the context or meaning thereof, be deemed to include his/her <b>heirs, successors,
+                                    executors, administrators, legal representatives, and permitted assigns</b>).
+                            </p>
+                            <p style="margin-top:15px;">
+                                <b>3. PURPOSE OF THE AGREEMENT</b>
+                            </p>
+                            <p style="margin-left:15px;">
+                                This Agreement is being executed with the intent to formally establish a binding
+                                understanding between the Employer and the Employee regarding the expectations
+                                and obligations associated with the employment relationship. The primary objectives
+                                of this Agreement are as follows:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <b>To ensure long-term commitment</b>
+                                    from the Employee towards PHN
+                                    Technology Pvt Ltd., thereby safeguarding the substantial investment made by
+                                    the Employer in training, development, onboarding, and upskilling of the
+                                    Employee.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <b>To foster stability, consistency, and continuity</b>
+                                    within operational and project
+                                    teams by discouraging abrupt resignations, unauthorized absences, or
+                                    abandonment of job responsibilities without due notice or cause.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <b>To mitigate the risk of disruptions</b>
+                                    in service delivery, project timelines, and
+                                    client engagements that may arise due to untimely departures, thereby
+                                    preserving the company’s accumulated intellectual capital and organizational
+                                    knowledge.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <b>To establish a sense of professional accountability</b>
+                                    in the Employee for the
+                                    technical training, managerial guidance, mentorship, and other forms of
+                                    professional development support provided by the Employer during
+                                    employment.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <b>To secure a measurable return on investment (ROI)</b>
+                                    from the Employee in
+                                    the form of sustained productivity, quality deliverables, adherence to
+                                    performance standards, and active contribution to the organizational objectives
+                                    and growth.
+                                </li>
+                            </ul>
+
+
+                            <!--footer Start-->
+                            <t t-foreach="docs" t-as="o">
+                                <div t-attf-class="footer o_boxed_footer o_company_#{o.company_id.id}_layout">
+                                    <div class="text-center">
+                                        <div t-field="o.company_id.report_footer">Company Report Footer</div>
+                                        <div t-if="report_type == 'pdf'">
+                                            Page:
+                                            <span class="page"/>
+                                            /
+                                            <span class="topage"/>
+                                        </div>
+                                        <div t-if="report_type == 'pdf' and display_name_in_footer" class="text-muted">
+                                            <span t-out="o.name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                            <!--footer End-->
+                        </div>
+                    </div>
+
+
+                    <!-- Second Page Content -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+                            <p>
+                                <b>4. TERM OF EMPLOYMENT</b>
+                            </p>
+                            <p style="margin-left:15px">This section outlines the duration of the employment and the
+                                mutual commitments
+                                concerning the agreed-upon bond period.
+                            </p>
+
+                            <p>
+                                <b>A. Commencement of Employment</b>
+                            </p>
+                            <p style="margin-left:15px">
+                                The employment of the Employee under this Agreement shall formally commence on
+                                date
+                                <strong>
+                                    <span t-field="doc.employee_id.date_of_joining"
+                                          t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
+                                </strong>
+                                , which shall be referred to as the <b>“Date of Joining”</b>. From this
+                                date onward, all terms and conditions as stipulated in this Agreement shall become
+                                effective and binding on both the Employer and the Employee.
+                            </p>
+
+                            <p>
+                                <b>B. Minimum Bond Period</b>
+                            </p>
+                            <p style="margin-left:15px">
+                                The Employee hereby agrees and undertakes to serve PHN Technology Pvt. Ltd. for a
+                                <b>minimum uninterrupted period of ONE (1) years</b>
+                                from the Date of Joining. This
+                                bond period represents the minimum tenure during which the Employee shall remain
+                                in active and continuous service with the Employer.
+                            </p>
+
+                            <p>
+                                <b>C. Extension of Bond Period</b>
+                            </p>
+                            <p style="margin-left:15px">
+                                In exceptional circumstances, the minimum bond period may be <b>extended further
+                                upon mutual written agreement
+                            </b> between the Employer and the Employee. Such
+                                extensions may be necessitated by factors including, but not limited to:
+                            </p>
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">The nature or timeline of ongoing projects,</li>
+                                <li style="margin-bottom:10px;">Any delays attributable to the Employee or external
+                                    factors,
+                                </li>
+                                <li style="margin-bottom:10px;">Specialized assignments or responsibilities requiring
+                                    extended commitment.
+                                </li>
+                            </ul>
+                            <p>
+                                Any such extension shall be documented in writing and signed by both parties to be
+                                considered valid and enforceable.
+                            </p>
+
+                            <p>
+                                <b>D. Premature Exit or Termination</b>
+                            </p>
+                            <p>
+                                If the Employee:
+                            </p>
+                            <ul style="margin-left:30px;">
+                                <li><b>Voluntarily resigns</b>, or
+                                </li>
+                                <li>
+                                    <b>Is terminated</b>
+                                    by the Employer due to violation of company policies,
+                                    misconduct, underperformance, or any reason deemed valid by the Employer
+                                </li>
+                            </ul>
+                            <p>
+                                <b>before the successful completion of the bond period</b>, the following consequences
+                                shall apply:
+                            </p>
+                            <p style="margin-bottom: 10px;">
+                                <b>a. Recovery of Bond Compensation</b>:
+                                <br/>
+                                <p style="margin-left: 15px;">
+                                    The Employer shall have the right to recover a pre-determined compensation amount
+                                    from
+                                    the Employee,
+                                    which shall cover the costs incurred in training, onboarding, and other resources
+                                    invested by the Employer.
+                                </p>
+                            </p>
+                            <p style="margin-bottom: 10px;">
+                                <b>b. Forfeiture of Employment Benefits</b>:
+                                <br/>
+                                <p style="margin-bottom: 10px;">
+                                    The Employee shall forfeit any entitlement to:
+                                </p>
+                                <ul style="margin-left: 30px;">
+                                    <li>Full and final settlement of dues (subject to Employer’s discretion),</li>
+                                    <li>Issuance of the <b>experience certificate</b>, and
+                                    </li>
+                                    <li>Issuance of the <b>relieving letter</b>.
+                                    </li>
+                                </ul>
+                            </p>
+                            <p style="margin-bottom: 15px; margin-left: 15px;">
+                                These actions shall serve as a protective measure for the Employer’s interests and shall
+                                be enforced in accordance
+                                with applicable laws and internal company policies.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+
+                            <p style="margin-bottom: 10px;">
+                                <b>5. DESIGNATION, ROLES and RESPONSIBILITIES</b>
+                            </p>
+
+                            <p style="margin-bottom: 10px; margin-left: 15px;">
+                                This section outlines the official designation of the Employee, along with the duties
+                                and expectations
+                                associated with the role, as well as deployment requirements during the period of
+                                employment with
+                                PHN Technology Pvt. Ltd.
+                            </p>
+
+                            <p style="margin-bottom: 6px;">
+                                <b>A. Designation</b>
+                            </p>
+
+                            <p style="margin-bottom: 10px; margin-left: 15px;">
+                                The Employee shall be appointed to the position of
+                                <b>
+                                    <t t-esc="doc.job_id.name"/>
+
+                                </b>
+                                , a role
+                                that holds both instructional
+                                and mentoring responsibilities within the scope of PHN Technology Pvt Ltd.'s educational
+                                initiatives,
+                                especially in the domains of Robotics, Artificial Intelligence (AI), and STEM-based
+                                learning.
+                            </p>
+
+                            <p style="margin-bottom: 6px;">
+                                <b>B. Key Roles and Responsibilities</b>
+                            </p>
+                            <p style="margin-bottom: 10px; margin-left: 15px;">
+                                The Employee shall diligently perform the following duties and functions, in accordance
+                                with the company’s expectations and project requirements:
+                            </p>
+
+                            <ul style="margin-left: 30px;">
+                                <li style="margin-bottom: 10px;">
+                                    <b>Delivering Technical Training Sessions:</b>
+                                    <br/>
+                                    Conduct interactive, hands-on training workshops and sessions on Robotics,
+                                    Artificial
+                                    Intelligence, and emerging technologies for students across schools and academic
+                                    institutions,
+                                    ensuring clarity and engagement at all levels.
+                                </li>
+                                <li style="margin-bottom: 8px;">
+                                    <b>Curriculum and Content Development:</b>
+                                    <br/>
+                                    Design, prepare, and periodically update instructional materials such as curricula,
+                                    lesson plans, activity sheets, and multimedia learning aids. These resources must
+                                    align with
+                                    educational standards across various school boards including
+                                    <b>CBSE, ICSE, and State
+                                        Boards.
+                                    </b>
+                                </li>
+                                <li style="margin-bottom: 8px;">
+                                    <b>Mentorship and Student Evaluation:</b>
+                                    <br/>
+                                    Guide students through project-based learning activities, assess their understanding
+                                    and
+                                    progress, provide constructive feedback, and support them in executing innovative
+                                    practical assignments.
+                                </li>
+                                <li style="margin-bottom: 8px;">
+                                    <b>Team Collaboration and Coordination:</b>
+                                    <br/>
+                                    Coordinate effectively with internal and external stakeholders such as school
+                                    faculty, lab coordinators,
+                                    fellow instructors, and support staff to ensure seamless execution of training
+                                    programs and events.
+                                </li>
+                                <li style="margin-bottom: 8px;">
+                                    <b>Adherence to Company Policies:</b>
+                                    <br/>
+                                    Maintain the highest standards of professional conduct and strictly comply with <b>
+                                    PHN
+                                    Technology Pvt Ltd.’s Prevention of Sexual Harassment (POSH) policy</b>, as well as
+                                    all
+                                    other ethical, disciplinary, and safety guidelines of the organization.
+                                </li>
+                                <li style="margin-bottom: 8px;">
+                                    <b>Exclusivity of Services:</b>
+                                    <br/>
+                                    The Employee shall not engage in <b>freelancing, part-time employment, personal
+                                    tutoring, or private coaching
+                                </b> —whether online or offline—without obtaining <b>prior
+                                    written consent
+                                </b> from the Employer.Any unauthorized engagement in such activities
+                                    shall be considered a breach of contract.
+                                </li>
+                            </ul>
+
+                            <p style="margin-bottom: 6px;">
+                                <b>C. Primary Deployment Location</b>
+                            </p>
+                            <p style="margin-bottom: 10px; margin-left: 15px;">
+                                The Employee shall be primarily posted at the following location during the tenure of
+                                their employment:
+                                <br/>
+                                <strong>Deployment Address --------------------------------------</strong>
+                                <br/>
+
+                                This location shall serve as the base for all training, reporting, and administrative
+                                activities unless otherwise communicated by the Employer.
+                            </p>
+
+
+                            <p style="margin-bottom: 6px;">
+                                <b>D. Temporary and Project-Based Deployment</b>
+                            </p>
+                            <p style="margin-bottom: 10px; margin-left: 15px;">
+                                The Employee acknowledges and agrees that, based on operational needs, training
+                                assignments, project schedules, or business expansion initiatives, they may be
+                                <strong>temporarily deployed</strong>
+                                or required to <strong>travel / relocate</strong> to other cities, school branches, or
+                                project sites across India.
+                                <br/>
+                                Such temporary deployments shall be considered a part of the Employee’s contractual
+                                obligation, and the Employee shall cooperate fully with all instructions provided by the
+                                Employer in this regard.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Page 5: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+
+                            <p style="margin-bottom: 10px;">
+                                <b>6. COMPENSATION STRUCTURE</b>
+                            </p>
+
+                            <p style="margin-bottom: 10px; margin-left:15px;">
+                                The following section outlines the Employee’s remuneration package, performance
+                                evaluation parameters, incentive eligibility, and applicable benefits during the period
+                                of employment with PHN Technology Pvt Ltd.
+                            </p>
+                            <br/>
+
+                            <p style="margin-bottom: 10px;">
+                                <strong>A. Annual Gross CTC</strong>
+                            </p>
+
+                            <p style="margin-bottom: 10px; margin-left: 15px;">
+                                The Employee shall be entitled to an <strong>Annual Gross Cost to Company (CTC)</strong> of
+                                <strong>
+                                    &#8377;
+                                    <t t-esc="doc.wage"/>
+                                </strong>
+                                (Rupees
+                                <strong>
+                                    <t t-esc="doc.salary_in_words"/>
+                                </strong>
+                                )
+                                . This CTC includes all fixed and
+                                variable components as per the company’s compensation policy and shall be subject to
+                                applicable statutory deductions including TDS, EPF, ESI (if applicable), professional
+                                tax, etc.
+                            </p>
+                            <p>
+                                <strong>B. Increment Structure</strong>
+                                <br/>
+                                <p style="margin-bottom: 10px; margin-left: 10px;">The Employee’s compensation shall be
+                                    reviewed on an annual
+                                    basis subject to satisfactory
+                                    performance,
+                                    adherence to company policies, and completion of defined Key Performance Indicators
+                                    (KPIs). The increment
+                                    framework is as follows:
+                                </p>
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Upon Completion of Year 2:</strong>
+                                    A performance-based salary increment in the range of <strong>20% to 25%</strong> may
+                                    be awarded based on
+                                    the outcome of the formal appraisal cycle and individual contributions to
+                                    organizational goals.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Upon Completion of Year 3:</strong>
+                                    Subject to consistent performance, the Employee may be eligible for a further
+                                    increment in the range of
+                                    <strong>15% to 20%</strong>, based on KPIs achieved during the second year of
+                                    employment.
+                                </li>
+                            </ul>
+
+                            <p>
+                                All increments are discretionary and based solely on the Employer’s appraisal process
+                                and performance benchmarks.
+                            </p>
+
+                            <p>
+                                <strong>C. Annual Performance Review Criteria</strong>
+                                <br/>
+                                <p style="margin-left:15px;">The Employer shall conduct a <strong>comprehensive
+                                    performance review annually</strong>,
+                                    which will evaluate
+                                    the Employee across several parameters, including but not limited to:
+                                </p>
+
+                            </p>
+
+                            <ul style="margin-left: 30px;">
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Punctuality and attendance discipline</strong>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Feedback scores from students, schools, and institutional stakeholders
+                                    </strong>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Adherence to prescribed curriculum structures and delivery formats</strong>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Effectiveness of presentation and communication skills</strong>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Technical proficiency and clarity in subject matter delivery</strong>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Professional behaviour and compliance with PHN’s internal policies,
+                                        including conduct standards and ethical practices
+                                    </strong>
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>D. Performance Incentives and Recognition</strong>
+                                <br/>
+                                <P style="margin-left:15px;">In addition to the fixed compensation, the Employee may be
+                                    considered for
+                                    <strong>performance-linked incentives, bonuses, awards, or internal
+                                        promotions</strong>,
+                                    depending on:
+                                </P>
+
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Demonstrated innovation</strong>
+                                    in teaching methodology or project design
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Positive feedback</strong>
+                                    from client institutions and student cohorts
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Achievement of key project deliverables</strong>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Noteworthy contributions</strong>
+                                    to product development or process improvement
+                                </li>
+                            </ul>
+
+                            <p>
+                                Such incentives shall be awarded solely at the discretion of the Employer and are not
+                                guaranteed.
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Page 6: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+                            <p>
+                                <strong>E. Insurance and Health Benefits</strong>
+                                <br/>
+                                <P style="margin-left:15px;">Upon successful completion of the Employee’s <strong>
+                                    probation period</strong>, the
+                                    Employer shall extend the following <strong>group insurance benefits</strong>, the
+                                    cost
+                                    of which shall be
+                                    <strong>entirely borne by PHN Technology Pvt Ltd.:</strong>
+                                </P>
+
+                            </p>
+
+                            <ul style="margin-left: 30px;">
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Group Medical Insurance:</strong>
+                                    Coverage up to <strong>₹3,00,000/-</strong> per annum for hospitalization and
+                                    medical expenses
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Personal Accidental Insurance:</strong>
+                                    Coverage up to <strong>₹10,00,000/-</strong> per annum against accidental death or
+                                    disability
+                                </li>
+                            </ul>
+
+                            <p>
+                                These benefits are subject to policy terms and conditions as governed by the designated
+                                insurance provider and may be updated from time to time.
+                            </p>
+
+                            <p>
+                                <strong>F. Accommodation Assistance</strong>
+                                <br/>
+                                <p style="margin-left:15px;">While the Employer shall bear <strong>no legal or financial
+                                    obligation
+                                </strong> to
+                                    provide <strong>residential accommodation</strong>, the following
+                                    <strong>support measures</strong>
+                                    may be extended as a goodwill gesture:
+                                </p>
+                            </p>
+
+                            <ul style="margin-left: 30px;">
+                                <li style="margin-bottom: 10px;">
+                                    Providing <strong>broker contacts</strong> or assistance in identifying suitable
+                                    residential options near the deployment location
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Facilitating <strong>local orientation support</strong> for ease of settling in
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Temporary accommodation</strong>
+                                    for a period of up to <strong>7 days</strong> in special cases involving <strong>
+                                    outstation project deployments or training assignments</strong>, subject to prior
+                                    approval and availability
+                                </li>
+                            </ul>
+
+                            <p>
+                                The Employee shall be responsible for arranging long-term accommodation independently.
+                            </p>
+
+                            <p>
+                                <strong>7. TERMINATION POLICY</strong>
+                                <br/>
+                                <p style="margin-left:15px;">This clause outlines the terms and conditions under which
+                                    either party may terminate the
+                                    employment relationship and the implications of such termination during or after the
+                                    bond period.
+                                </p>
+
+                            </p>
+
+                            <p>
+                                <strong>A. Termination for Cause by the Employer</strong>
+                                <br/>
+                                <p style="margin-left:15px;">The Employer reserves the right to terminate the employment
+                                    of the Employee with <strong>
+                                        immediate effect
+                                    </strong> if the Employee is found guilty of any
+                                    <strong>misconduct, breach of company policy, or unethical conduct</strong>.
+                                    Termination
+                                    for cause includes, but is not limited to, the following:
+                                </p>
+                            </p>
+
+                            <ul style="margin-left: 30px;">
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Acts of misconduct</strong>
+                                    or gross indiscipline, including insubordination, misbehaviour, or harassment of any
+                                    kind.
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Violation of internal company policies</strong>, including but not limited
+                                    to the <strong>Prevention of Sexual Harassment (POSH) policy</strong>,
+                                    confidentiality agreements, and IT/data security protocols.
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Consistent underperformance</strong>
+                                    or failure to meet defined Key Performance Indicators (KPIs) or project deadlines.
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Involvement in theft, fraud, embezzlement,</strong>
+                                    misappropriation of company property or funds, or <strong>unauthorized disclosure of
+                                    sensitive information
+                                </strong> resulting in data breach or reputational damage.
+                                </li>
+                            </ul>
+                            <p style="margin-left:15px;">In such cases, the Employer may terminate the Employee’s
+                                services without any severance pay,
+                                and legal action may be pursued depending on the severity of the violation.
+                            </p>
+
+
+                        </div>
+                    </div><!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+
+                            <p>
+                                <strong>B. Voluntary Resignation by the Employee During Bond Period</strong>
+                                <br/>
+                                <p style="margin-left:15px;">The Employee shall<strong>
+                                    not be permitted to resign or
+                                    voluntarily exit
+                                </strong>  the company during the agreed-upon bond period of ONE (1) years.
+                                    Any attempt to do so shall be treated as a
+                                    <strong>breach of this Agreement,</strong>.
+                                    and the
+                                    following consequences shall apply:
+                                </p>
+                            </p>
+
+                            <ul style="margin-left: 30px;">
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Forfeiture of Full and Final Settlement (FNF):</strong>
+                                    The Employee shall not be entitled to any dues, pending salary, or benefits under
+                                    the FNF process.
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Non-Issuance of Relieving or Experience Letters:</strong>The Employee will
+                                    not receive a formal relieving letter, experience certificate, or any supporting
+                                    documentation from the Employer.
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <strong>Adverse Reference:</strong>
+                                    : The Employer reserves the right to issue a <strong>a negative or non-confirmatory
+                                    reference</strong>to any prospective employer or background verification agency.
+                                </li>
+                            </ul>
+                            <p style="margin-left:15px;">These measures are aimed at ensuring the Employee honors their
+                                professional commitment and the company’s investment in training and development
+                            </p>
+                            <p>
+                                <strong>C. Exit Procedure Post Completion of Bond Period</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                Upon successful completion of the bond term, the Employee shall be allowed to resign
+                                from their position by serving a
+                                <strong>minimum notice period of
+                                    <t t-esc="doc.notice_days"/>
+                                    days
+                                </strong>
+                                in writing.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    If the Employee <strong>fails to serve the full notice period</strong>, the Employer
+                                    shall have the right to recover an amount equal to
+                                    <strong>two (2) months</strong>
+                                    of the Employee’s gross <strong>monthly salary</strong> in lieu of notice.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    This recovery shall be deducted from any pending dues or pursued legally, if
+                                    necessary.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>D. Bond Breach Compensation</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                In the event the Employee breaches the bond agreement before the completion of the
+                                mandatory service period, the Employee shall be liable to compensate the Employer by
+                                paying an amount of
+                                <strong>₹1,50,000 (Rupees One Lakh Fifty Thousand Only)</strong>
+                                or the <strong>total unearned salary for the remaining bond duration, whichever is
+                                higher</strong>.
+                            </p>
+
+                            <p style="margin-left:15px;">This compensation covers:</p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Costs incurred for training, orientation, and onboarding</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Administrative and legal expenses</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Loss of productivity, project delays, and opportunity cost</strong>
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                The Employer reserves the right to recover this amount through legal proceedings or
+                                settlement channels if the Employee fails to make the payment voluntarily
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>8. ABSCONDMENT POLICY</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause defines the consequences and legal implications if the Employee absconds,
+                                i.e.,
+                                <strong>leaves employment without notice, approval, or formal communication</strong>,
+                                thereby violating the terms of this Agreement and professional ethics.
+                            </p>
+
+                            <p>
+                                <strong>Definition of Abscondment</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                To this Agreement, <strong>abscondment</strong> shall mean an act wherein the Employee
+                                discontinues reporting to work or
+                                abandons their duties <strong>without providing any prior written notice</strong>,
+                                without obtaining proper clearance from the Employer,
+                                and without any valid justification for a continuous period of more than
+                                <strong>three (3) consecutive working days</strong>.
+                            </p>
+
+                            <p>
+                                <strong>Employer’s Right to Legal Recourse</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                In the event of abscondment, PHN Technology Pvt Ltd. shall initiate
+                                <strong>legal proceedings</strong>
+                                against the Employee under the applicable provisions of the
+                                <strong>Indian Contract Act, 1872</strong>, and other relevant statutes. Such
+                                proceedings may include the recovery of dues,
+                                compensation for breach of contract, and any loss or damage caused to the company or its
+                                clients.
+                            </p>
+
+                            <p>
+                                <strong>Freezing of Financial and Salary Accounts</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                Upon confirmation of abscondment, the Employer reserves the right to:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Freeze or withhold the Employee’s salary</strong>
+                                    or any financial benefits that may be due as of the date of abscondment.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Suspend or revoke access to <strong>company accounts, portals, software licenses,
+                                    and payroll systems</strong>.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Withhold any documentation, including <strong>experience letters, relieving letters,
+                                    or service verification
+                                </strong> records.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>Liability of the Employee Upon Abscondment</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                The Employee shall be held <strong>personally liable and accountable</strong> for the
+                                following, and the Employer reserves the right to recover such damages:
+                            </p>
+
+                            <p>
+                                <strong>A. Recovery of Training and Project Investment:</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                The cost incurred by the Employer in onboarding, training, mentoring, and assigning the
+                                Employee to active projects will be recoverable.
+                            </p>
+
+                            <p>
+                                <strong>B. Loss of Client Trust or Business Relationships:</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                Any <strong>disruption of client services, delay in deliverables, or damage to
+                                reputation or client satisfaction
+                            </strong> resulting from the Employee’s sudden absence will be evaluated and legally
+                                claimed.
+                            </p>
+                            <p>
+                                <strong>C. Return or Recovery of Company Assets:</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee must return all physical and digital assets entrusted by the company, which
+                                may include but is not limited to:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li>Company laptop</li>
+                                <li>Identity cards</li>
+                                <li>Access badges</li>
+                                <li>Project documents or data</li>
+                                <li>Any other material, devices, or property issued by the Employer</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p style="margin-left:15px;">
+                                Failure to return such items within the stipulated period will be treated as
+                                <strong>misappropriation of company property</strong>, and appropriate
+                                <strong>police complaint and recovery action</strong>
+                                shall be initiated.
+                            </p>
+
+                            <p>
+                                <strong>9. WORKING HOURS and DEPLOYMENT SCHEDULE</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause defines the standard working hours, expectations regarding flexibility, and
+                                provisions related to weekend duties for the Employee during the tenure of employment
+                                with PHN Technology Pvt Ltd.
+                            </p>
+
+                            <p>
+                                <strong>A. Standard Working Hours.</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The official working hours for the Employee shall be from
+                                <strong>10:00 AM to 7:00 PM, Monday to Saturday.</strong>
+                                This schedule includes a designated lunch break and short recess periods as per company
+                                policy.
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                However, <strong>Monday to Saturday is not fixed</strong> as the standard working week,
+                                and the
+                                <strong>Employer reserves the right to assign any other weekday(s)</strong>
+                                as weekly off based on business or operational requirements.
+                                The Employee agrees to adhere to the weekly schedule as communicated by the Employer
+                                from time to time.
+                            </p>
+
+                            <p>
+                                <strong>Based on Academic Requirements</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                Given the nature of the Employee's role, which involves engagement with
+                                <strong>schools, educational institutions, and training schedules</strong>, a flexible
+                                work approach is expected. This includes:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">Adjusting start or end times based on the operational
+                                    hours of assigned schools or
+                                    institutions.
+                                </li>
+                                <li style="margin-bottom:10px;">Early reporting or extended working hours during
+                                    <strong>academic sessions, exams, workshops, or project deliverables</strong>.
+                                </li>
+                                <li style="margin-bottom:10px;">Travel or on-site presence during field training or
+                                    institutional assignments.
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                The Employee is required to exhibit
+                                <strong>adaptability and commitment</strong>
+                                to accommodate these dynamic requirements in alignment with client needs and
+                                organizational deliverables.
+                            </p>
+
+                            <p>
+                                <strong>B. Weekend Availability</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee is expected to be
+                                <strong>available for work on Saturdays and Sundays</strong>, during active training
+                                periods, boot camps, school exhibitions, or project evaluation events. The need for
+                                weekend involvement will be communicated in advance and will be based on project
+                                schedules and client engagements.
+                            </p>
+                            <p>
+                                <strong>C. Weekend Work Compensation Policy</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                It is explicitly agreed that:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Weekend working requirements are factored into the Employee’s overall
+                                        compensation (CTC).
+                                    </strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    There will be <strong>no additional overtime or special pay</strong> for working on
+                                    weekends, unless otherwise approved in writing by the management for exceptional
+                                    assignments.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Compensatory offs, if granted, shall be at the <strong>sole discretion of the
+                                    Employer</strong>, depending on project needs and work continuity.
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                The Employee shall be expected to fulfil their professional obligations with a spirit of
+                                responsibility and dedication, keeping in mind the company’s commitment to high-quality
+                                delivery and client satisfaction.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>10. Company Asset Usage Policy</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                As part of the employment, the Employer shall provide a <strong>laptop</strong> and
+                                other necessary assets to the Employee for official use. The Employee agrees to the
+                                following conditions:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The laptop and other assets remain the sole property of the Employer.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    The Employee shall <strong>not install or use any unauthorized or pirated software
+                                </strong> on the company-provided laptop or any other company asset.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    The laptop must be used strictly in accordance with the <strong>Company Asset
+                                    Policy</strong>, which prohibits personal misuse and mandates responsible handling.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    In the event the Employee installs or uses any pirated or illegal software, or
+                                    engages in any unauthorized digital activity that leads to
+                                    <strong>legal, financial, or reputational damage to the company</strong>, the entire
+                                    liability—
+                                    <strong>including penalties, damages, or legal costs—shall be borne solely by the
+                                        Employee</strong>.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>11. PROBATION PERIOD</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause outlines the conditions applicable during the initial probationary period of
+                                the Employee's service with PHN Technology Pvt Ltd., including termination rights and
+                                bond enforcement terms upon confirmation.
+                            </p>
+
+                            <p>
+                                <strong>A. Duration of Probation</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee shall initially be appointed on a <strong>probationary basis for a period
+                                of three (3) months</strong>, commencing from the official date of joining. During this
+                                period,the Employee’s performance, conduct, adaptability, and overall suitability for
+                                the role will be assessed by the Employer.
+                            </p>
+                            <p>
+                                <strong>B. Termination During Probation</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">During the probationary period:</p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    Either party — <strong>the Employer or the Employee</strong> — may choose to
+                                    <strong>terminate the employment</strong>
+                                    by providing a minimum of
+                                    <strong>seven (7) days’ prior written notice</strong>, or salary in lieu of notice.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    No bond-related compensation or penalties shall apply if the employment is
+                                    terminated within the probation period.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>C. Confirmation and Commencement of Bond Period</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                Upon successful completion of the probationary period and subject to satisfactory
+                                performance,
+                                the Employee will receive a <strong>formal confirmation letter</strong> from the
+                                Employer
+                                confirming their appointment as a <strong>permanent employee</strong>.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    From the date of such confirmation, the terms and conditions of the
+                                    <strong>Employment Bond Agreement, including the mandatory three (3) year bond
+                                        period</strong>,
+                                    shall become fully binding and legally enforceable.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    The Employee shall thereafter be obligated to honour the full bond term,
+                                    failing which the penalties and liabilities outlined in this Agreement shall apply.
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>12. TRAINING and DEVELOPMENT INVESTMENT</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                PHN Technology Pvt Ltd. is committed to providing each Employee with structured and
+                                comprehensive training
+                                to ensure they are fully equipped to perform their roles effectively and meet
+                                organizational standards.
+                            </p>
+
+                            <p>
+                                <strong>A. Nature and Scope of Investment</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employer makes a <strong>significant investment, approximately ₹50,000 (Rupees Fifty
+                                Thousand Only) per employee</strong>,
+                                toward the Employee’s initial and ongoing professional development. This investment
+                                includes, but is not limited to:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Technical training</strong>
+                                    relevant to the domains of robotics, AI, and STEM education.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Soft skills training</strong>, including communication, leadership, time
+                                    management, and collaboration.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Orientation in the <strong>use of hardware tools and software platforms</strong> required
+                                    for instructional delivery and project execution.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Hands-on training for <strong>client interaction, classroom management, and support
+                                    services
+                                </strong> during field deployment.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>B. Enforceability in Case of Early Resignation</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                In the event the Employee <strong>resigns or discontinues employment prior to completing
+                                the mandatory bond period</strong>,
+                                such an action will be treated as a <strong>breach of contract</strong> and a direct <strong>
+                                loss of investment
+                            </strong> made by the company.
+                            </p>
+
+                            <p style="margin-left:15px;">As a result:</p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The Employee shall be held liable under the terms of this Agreement.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    The <strong>bond enforcement provisions</strong>, including recovery of training
+                                    costs and compensation for premature exit,
+                                    shall be <strong>legally invoked</strong> in accordance with Clause 7 and Clause 8
+                                    of this Agreement.
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                This clause reinforces the company’s expectation that Employees reciprocate its
+                                investment by committing to long-term service and
+                                delivering consistent professional performance.
+                            </p>
+
+                            <p>
+                                <strong>13. BREACH OF AGREEMENT COMPENSATION</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause outlines the financial liabilities of the Employee in the event of a breach
+                                of the terms and conditions
+                                outlined in this Employment Bond Agreement.
+                            </p>
+
+                            <p>
+                                <strong>A. Conditions Constituting a Breach</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee expressly agrees that a breach of this Agreement shall be deemed to have
+                                occurred under any of the following circumstances:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>a. Voluntary Resignation:</strong>
+                                    <br/>
+                                    If the Employee voluntarily resigns or terminates their employment
+                                    <strong>prior to the completion of the mandatory bond period</strong>
+                                    of one (1) years,
+                                    without any justifiable or mutually agreed cause.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>b. Misconduct or Policy Violation:</strong>
+                                    <br/>
+                                    If the Employee is found <strong>guilty of gross misconduct</strong>, serious
+                                    negligence, or violation of
+                                    company policies, including but not limited to the <strong>POSH Policy, Data
+                                    Confidentiality Policy</strong>,
+                                    or any other internal code of conduct.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>c. Abscondment or Abandonment of Duties:</strong>
+                                    <br/>
+                                    If the Employee <strong>abandons their duties</strong> or discontinues employment
+                                    without proper notice, handover,
+                                    or formal exit procedures, thereby disrupting project continuity and team
+                                    operations.
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>B. Compensation Payable</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                In the event of any of the above breaches, the Employee shall be <strong>legally liable
+                                to pay a compensation amount of ₹1,50,000
+                                (Rupees One Lakh Fifty Thousand Only)
+                            </strong> to the Employer. This amount shall be
+                                <strong>payable immediately upon demand</strong>
+                                and shall be considered <strong>liquidated damages</strong> for breach of contract.
+                            </p>
+
+                            <p>
+                                <strong>C. Basis of Compensation</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The compensation amount mentioned above is determined based on, but not limited to, the
+                                following cost considerations incurred by the Employer:
+                            </p>
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Training and Development Expenditure</strong>
+                                    <br/>
+                                    (Including technical, behavioural, and operational training)
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Recruitment and Onboarding Expenses</strong>
+                                    <br/>
+                                    (Costs related to sourcing, screening, hiring, and initial deployment)
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Project Disruption and Delivery Delays</strong>
+                                    <br/>
+                                    (Impact on timelines, client deliverables, and quality assurance)
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Administrative and Legal Costs</strong>
+                                    <br/>
+                                    (Associated with documentation, legal processing, and internal loss of productivity)
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                The Employee hereby acknowledges and agrees that this compensation is
+                                <strong>reasonable and proportionate</strong>
+                                to the loss suffered by the Employer in case of premature exit or misconduct, and that
+                                the
+                                <strong>Employer reserves the right to initiate legal action</strong>
+                                for recovery if the amount remains unpaid.
+                            </p>
+
+                            <p>
+                                <strong>14. CONFIDENTIALITY OBLIGATION</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause defines the Employee’s obligation to maintain strict confidentiality
+                                regarding all proprietary,
+                                operational, and client-related information obtained during employment with PHN
+                                Technology Pvt Ltd.
+                            </p>
+
+                            <p>
+                                <strong>A. Non-Disclosure of Confidential Information</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee hereby agrees and undertakes:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Not to disclose, share, disseminate, or misuse</strong>
+                                    any confidential or sensitive information,
+                                    including but not limited to:
+                                    <ul style="margin-left:30px; margin-top:10px;">
+                                        <li style="margin-bottom:10px;">Internal company documents and communications
+                                        </li>
+                                        <li style="margin-bottom:10px;">Client data, contracts, strategies, and
+                                            technical requirements
+                                        </li>
+                                        <li style="margin-bottom:10px;">Training materials, curricula, source code, or
+                                            algorithms
+                                        </li>
+                                        <li style="margin-bottom:10px;">Intellectual property, business models,
+                                            financials, or product plans
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Confidential information may be communicated or used
+                                    <strong>only for authorized work-related purposes</strong>
+                                    and <strong>only with prior-written consent</strong> of the Employer.
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>B. Duration of Confidentiality Obligation</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                The confidentiality obligations under this Agreement shall remain in effect:
+                            </p>
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>• Throughout the entire term of the Employee’s association with PHN
+                                        Technology Pvt Ltd.,
+                                    </strong>
+                                    and
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>• For a period of two (2) years following the termination or conclusion of
+                                        employment,
+                                    </strong>
+                                    regardless of the reason for exit (resignation, termination, or contract
+                                    expiration).
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>C. Consequences of Breach</strong>
+                            </p>
+                            <p style="margin-left:15px;">
+                                Any <strong>violation or breach</strong> of this confidentiality clause by the Employee
+                                shall be
+                                considered a <strong>serious contractual and legal offense,</strong> and the Employer
+                                shall have the
+                                right to:
+                            </p>
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    Initiate
+                                    <strong>civil and/or criminal legal proceedings</strong>
+                                    under applicable laws including but not limited to the
+                                    <strong>Information Technology Act, 2000</strong>, and the <strong>Indian Contract
+                                    Act, 1872</strong>.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Claim damages, compensation, or injunctive relief</strong>
+                                    for the loss or harm caused due to the breach.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Pursue disciplinary action</strong>, including immediate termination and
+                                    forfeiture of all post-employment benefits or documents.
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                The Employee confirms having fully understood the importance of data protection and
+                                agrees to uphold the company’s trust and integrity
+                                by ensuring strict <strong>non-disclosure and non-usage</strong> of any confidential
+                                information for personal, commercial, or third-party benefit.
+                            </p>
+
+                            <p>
+                                <strong>15. INTELLECTUAL PROPERTY (IP) OWNERSHIP</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause defines the ownership and rights over all intellectual property developed,
+                                authored, or contributed to by the Employee
+                                during employment with PHN Technology Pvt Ltd.
+                            </p>
+
+                            <p>
+                                <strong>A. Ownership of Work Product</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee hereby agrees and acknowledges that <strong>all intellectual property
+                                created, developed, designed, authored,
+                                or contributed to—individually or jointly—during employment</strong>, shall be
+                                the <strong>sole and exclusive property of PHN Technology Pvt Ltd</strong>.
+                                This includes, but is not limited to:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">Software applications, source code, scripts, and
+                                    algorithms
+                                </li>
+                                <li style="margin-bottom:10px;">Electronic hardware or embedded system designs</li>
+                                <li style="margin-bottom:10px;">Course materials, training manuals, and classroom
+                                    resources
+                                </li>
+                                <li style="margin-bottom:10px;">Learning Management System (LMS) modules and content
+                                </li>
+                                <li style="margin-bottom:10px;">Project templates, lesson plans, and proprietary
+                                    learning frameworks
+                                </li>
+                                <li style="margin-bottom:10px;">Research reports, presentations, creative works, and
+                                    documentation
+                                </li>
+                                <li style="margin-bottom:10px;">Any other innovations, concepts, or technical
+                                    developments
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                All such work shall be considered <strong>“work made for hire”</strong> under applicable
+                                Indian intellectual property laws.
+                            </p>
+
+
+                        </div>
+                    </div>
+
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>B. Waiver of Rights and Royalties</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee expressly <strong>waives all present and future claims, ownership rights,
+                                patents, copyrights, royalties,
+                                or licensing entitlements
+                            </strong> in relation to the above-mentioned intellectual property.
+                            </p>
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The Employee shall not assert authorship, share such materials externally, or
+                                    repurpose them for personal or commercial use without written authorization from the
+                                    Employer.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Any use or reproduction of these assets beyond the scope of assigned duties shall
+                                    be deemed a <strong>violation of this Agreement</strong> and subject to legal
+                                    action.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>C. Post-Employment Applicability</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause shall survive the termination or expiration of employment. The Employee
+                                agrees that even after resignation,
+                                retirement, or separation from the company, they shall
+                                <strong>not disclose, replicate, distribute, or exploit</strong>
+                                any of the intellectual property in any manner whatsoever.
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                PHN Technology Pvt Ltd. reserves the right to take legal action in the event of any
+                                infringement, unauthorized usage,
+                                or misappropriation of its intellectual property assets. The Employee is expected to
+                                respect and uphold the company’s
+                                IP rights as a core part of their professional commitment.
+                            </p>
+
+                            <p>
+                                <strong>16. USE OF PERSONAL VEHICLE</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                For the position of <strong>Technological Educator</strong> and <strong>Operational
+                                Executive</strong>, it is
+                                <strong>mandatory</strong>
+                                for the employee to use their <strong>own two-wheeler vehicle</strong> (bike/scooty)
+                                for official visits to schools, colleges, and institutions within their assigned
+                                territory.
+                            </p>
+
+                            <p style="margin-left:15px;">The employee must ensure the following:</p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The vehicle used complies with all applicable provisions under the
+                                    <strong>Motor Vehicles Act, 1988</strong>, including but not limited to:
+                                    <ul style="margin-left:20px; margin-top:5px;">
+                                        <li>Valid Registration Certificate (RC)</li>
+                                        <li>Valid Driving License</li>
+                                        <li>Valid Insurance Policy</li>
+                                        <li>Pollution Under Control (PUC) Certificate</li>
+                                        <li>Proper functioning of lights, brakes, horn, and other safety features</li>
+                                    </ul>
+                                </li>
+
+                                <li style="margin-bottom:10px;">
+                                    <strong>Use of a helmet is strictly mandatory</strong>
+                                    at all times while riding the two-wheeler,
+                                    in adherence to road safety norms and to ensure personal safety.
+                                </li>
+
+                                <li style="margin-bottom:10px;">
+                                    If the vehicle is
+                                    <strong>registered in the name of a family member</strong>
+                                    (such as a parent or guardian), the employee must submit a duly signed
+                                    <strong>No Objection Certificate (NOC)</strong>
+                                    from the registered owner authorizing the use of the vehicle for official duties.
+                                </li>
+
+                                <li style="margin-bottom:10px;">
+                                    The employee shall bear full responsibility for any legal, safety, or third-party
+                                    liability arising from the usage
+                                    of the personal vehicle during official work.
+                                </li>
+
+                                <li style="margin-bottom:10px;">
+                                    The company shall not be held liable for any personal injury, accident, vehicle
+                                    damage, or legal penalties incurred
+                                    during the use of the vehicle. However, in case of any <strong>injury or accident
+                                </strong> occurring during official duty,
+                                    the employee may avail <strong>benefits under the employer-provided insurance
+                                    policy</strong>, subject to the terms and
+                                    conditions of the policy. In such cases, the company may also consider providing
+                                    <strong>additional support</strong>
+                                    on a case-by-case basis, at its sole discretion.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Fuel and travel expenses are already included in the employee’s Cost to Company
+                                    (CTC) and shall not be reimbursed separately. This has been clearly explained and
+                                    communicated to the employee during the time of joining and offer acceptance.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>17. NON-COMPETE CLAUSE</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause outlines the restrictions placed on the Employee post-employment to protect
+                                the legitimate business interests,
+                                trade secrets, and competitive position of PHN Technology Pvt Ltd.
+                            </p>
+
+                            <p>
+                                <strong>A. Restriction on Employment with Competitors</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee agrees that, for a period of <strong>twelve (12) months</strong> immediately
+                                following the cessation
+                                of their employment with PHN Technology Pvt Ltd., regardless of the reason for
+                                separation (resignation, termination,
+                                or contract completion), they shall
+                                <strong>not engage—either directly or indirectly—with any competitor organization
+                                </strong>
+                                of the Employer.
+                            </p>
+
+                            <p style="margin-left:15px;">This restriction applies to:</p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">Accepting full-time or part-time employment</li>
+                                <li style="margin-bottom:10px;">Working as a consultant, advisor, or freelance
+                                    professional
+                                </li>
+                                <li style="margin-bottom:10px;">Founding, co-founding, or associating with a competing
+                                    business
+                                </li>
+                                <li style="margin-bottom:10px;">Representing or promoting any competitor's services</li>
+                            </ul>
+
+                            <p>
+                                <strong>B. Scope of Competitor Definition</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                To this clause, a <strong>“competitor”</strong> shall be defined as any individual,
+                                company, organization, or entity
+                                engaged in one or more of the following business domains:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Robotics and Automation Education</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Artificial Intelligence (AI) and Machine Learning Training</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>STEM-based Academic Services</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Educational Technology (EdTech) Platforms</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Technical Skill Development or Instructor-led Training Models</strong>
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                This includes both direct competitors and any entities with overlapping or derivative
+                                offerings in the Indian education
+                                technology and innovation space.
+                            </p>
+
+                            <p>
+                                <strong>C. Geographic Applicability</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This non-compete restriction shall be <strong>enforceable throughout the territory of
+                                India</strong>, irrespective
+                                of the location where the Employee was deployed during their tenure with the Employer.
+                                This Pan-India applicability
+                                ensures protection of PHN Technology’s client base, training modules, and proprietary
+                                delivery systems.
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+                            <p>
+                                <strong>D. Enforcement and Legal Remedies</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                The Employee acknowledges and agrees that any violation of this clause would cause
+                                <strong>irreparable harm</strong>
+                                to the business and reputation of PHN Technology Pvt. Ltd.
+                                In the event of a breach:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The Employer reserves the right to <strong>initiate legal action</strong>, including
+                                    but not limited to seeking injunctive relief, damages, or specific performance.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    The Employer may also <strong>notify relevant parties</strong>, including future
+                                    employers or partners, of the breach and enforce legal consequences accordingly.
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                By signing this Agreement, the Employee confirms that this non-compete restriction is
+                                <strong>reasonable in duration, geographic scope, and subject matter</strong>, and
+                                agrees to comply in full
+                                to protect the business interests of the Employer.
+                            </p>
+
+                            <p>
+                                <strong>18. NOTICE PERIOD OBLIGATION (POST-BOND PERIOD)</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause outlines the mandatory notice period and related responsibilities of the
+                                Employee in the event of resignation
+                                after the successful completion of the agreed employment bond duration.
+                            </p>
+
+                            <p>
+                                <strong>A. Mandatory Notice Period</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                Upon completion of the stipulated bond period of one (1) <strong>year</strong>, the
+                                Employee shall be required to serve a
+                                <strong>minimum notice period of
+                                    <t t-esc="doc.notice_days"/>
+                                    days
+                                </strong>
+                                prior to voluntarily resigning or terminating their
+                                employment with PHN Technology Pvt. Ltd.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The purpose of this notice period is to facilitate a smooth transition, ensure
+                                    project continuity, and allow sufficient
+                                    time for knowledge transfer and the onboarding of a replacement, if necessary.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>B. Consequences of Non-Compliance</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                Failure to serve the full
+                                <strong>
+                                    <t t-esc="doc.notice_days"/>
+                                    days
+                                </strong>
+                                notice period without valid justification and written
+                                approval from the Employer shall be
+                                treated as a breach of the post-bond employment conditions. In such cases, the following
+                                actions shall be enforced:
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                <strong>a. Monetary Deduction:</strong>
+                            </p>
+                            <p style="margin-left:30px;">
+                                The Employer shall have the right to deduct an amount equivalent to <strong>two (2)
+                                months of the
+                                Employee’s gross monthly salary
+                            </strong> from any dues payable to the Employee, including salary,
+                                incentives, or final settlement amounts.
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                <strong>b. Withholding of Exit Documents:</strong>
+                            </p>
+                            <p style="margin-left:30px;">
+                                The Employee shall not be entitled to receive the following official documents:
+                            </p>
+
+                            <ul style="margin-left:45px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Experience Certificate</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Relieving Letter</strong>
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Service Verification Records</strong>
+                                </li>
+                            </ul>
+                            <p style="margin-left:15px;">
+                                These documents will be released only upon satisfactory fulfilment of the notice period
+                                requirement or clearance of the applicable monetary penalty in lieu of notice.
+                            </p>
+                            <p style="margin-left:15px;">
+                                The Employee acknowledges and agrees to this obligation as a condition of employment,
+                                recognizing the critical nature of proper exit procedures for organizational stability
+                                and professional closure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+                            <p>
+                                <strong>19. DISPUTE RESOLUTION</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause outlines the mechanism to be followed in the event of any disagreement,
+                                claim, or dispute
+                                arising between the Employer and the Employee in connection with this Agreement, or any
+                                matter relating
+                                to the terms of employment.
+                            </p>
+
+                            <p>
+                                <strong>A. Initial Amicable Resolution</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                In the event of any conflict, misunderstanding, or disagreement between the parties,
+                                both the Employer
+                                and the Employee agree to
+                                <strong>first engage in good faith discussions and negotiations</strong>
+                                to resolve the issue amicably and without recourse to formal proceedings.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The parties shall make every reasonable effort to
+                                    <strong>communicate openly and reach a mutually agreeable solution</strong>
+                                    through internal meetings
+                                    and correspondence.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Any dispute, whether related to compensation, policies, performance, bond terms, or
+                                    termination,
+                                    shall first be addressed through <strong>internal dispute resolution mechanisms
+                                </strong> of
+                                    PHN Technology Pvt Ltd.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>B. Arbitration Proceedings</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                If the dispute cannot be resolved through mutual discussions within a reasonable time
+                                frame (typically
+                                30 days from the initiation of the dispute), the matter shall be referred to
+                                <strong>arbitration</strong>
+                                in accordance with the provisions of the
+                                <strong>Arbitration and Conciliation Act, 1996</strong>, and any statutory amendments
+                                thereof.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    The arbitration shall be conducted by a <strong>sole arbitrator</strong>, jointly
+                                    appointed by both parties.
+                                    In the absence of mutual agreement, the arbitrator shall be appointed in accordance
+                                    with the said Act.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    The decision or award of the arbitrator shall be
+                                    <strong>final, binding, and enforceable</strong>
+                                    on both parties.
+                                </li>
+                            </ul>
+
+                            <p>
+                                <strong>C. Seat, Language, and Jurisdiction</strong>
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    <strong>Place of Arbitration:</strong>
+                                    The seat and venue of arbitration proceedings shall be
+                                    <strong>Pune, Maharashtra</strong>.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Language:</strong>
+                                    All arbitration proceedings, documentation, and communications
+                                    shall be conducted in the <strong>English language</strong> only.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    <strong>Jurisdiction:</strong>
+                                    Subject to arbitration, any legal proceedings arising from or related
+                                    to thisAgreement shall fall exclusively under the jurisdiction of the <strong>courts
+                                    located in Pune, Maharashtra</strong>, and no other courts shall have jurisdiction.
+                                </li>
+                            </ul>
+                            <p style="margin-left:15px;">
+                                This clause ensures that both the Employer and the Employee have access to a structured,
+                                fair, and enforceable process for resolving disputes, while preserving professional
+                                relations to the extent possible.
+                            </p>
+
+                            <p>
+                                <strong>20. GOVERNING LAW AND SEVERABILITY</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause outlines the legal framework that governs this Agreement and addresses the
+                                enforceability of its provisions.
+                            </p>
+
+                            <p>
+                                <strong>A. Applicable Law</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This Employment Bond Agreement shall be <strong>governed by, interpreted in accordance
+                                with, and enforced under the laws of the Republic of India</strong>,
+                                without regard to any principles of conflict of laws.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    All rights, obligations, and remedies of the parties under this Agreement shall be
+                                    determined exclusively as per the applicable Indian laws, statutes, and judicial
+                                    precedents.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    This includes, but is not limited to, laws relating to employment, contracts,
+                                    arbitration, intellectual property, and confidentiality.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+
+                            <p>
+                                <strong>B. Severability of Provisions</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                If any clause, term, or provision of this Agreement is determined to be
+                                <strong>invalid, illegal, unenforceable, or in conflict with any applicable law</strong>
+                                by a competent court or authority, such invalidity shall:
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    Not affect or impair the <strong>remaining provisions</strong> of this Agreement,
+                                    all of which shall remain in full force and effect.
+                                </li>
+                                <li style="margin-bottom:10px;">
+                                    Be <strong>deemed severed</strong> from the Agreement, and the rest of the Agreement
+                                    shall be interpreted to give effect to the intent of the parties to the greatest
+                                    extent permitted by law.
+                                </li>
+                            </ul>
+
+                            <p style="margin-left:15px;">
+                                The Employer and Employee agree that any unenforceable provision shall be <strong>
+                                replaced or modified
+                            </strong> to the minimum extent necessary to make it valid and enforceable,
+                                preserving the original intent to the maximum extent possible.
+                            </p>
+
+                            <p>
+                                <strong>21. ENTIRE AGREEMENT</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This clause confirms that the terms outlined in this document represent the complete and
+                                binding understanding between both parties.
+                            </p>
+
+                            <p>
+                                <strong>A. Comprehensive Understanding</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                This Employment Bond Agreement constitutes the <strong>entire agreement</strong> between
+                                <strong>PHN Technology Pvt Ltd. ("Employer")</strong>
+                                and the <strong>Employee</strong>, and it supersedes and replaces all prior
+                                discussions, negotiations, promises, representations, communications, or
+                                agreements—whether oral or written—relating to the subject matter herein.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    This document is intended to be the <strong>sole and exclusive record</strong> of
+                                    the
+                                    rights,
+                                    obligations, and commitments of both parties during employment under the bond.
+                                </li>
+                            </ul>
+                            <p>
+                                <strong>B. Modifications and Amendments</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                No addition, deletion, variation, or modification to any term of this Agreement shall be
+                                valid or binding
+                                <strong>unless it is made in writing and duly signed and acknowledged by both the
+                                    Employer and the Employee</strong>.
+                            </p>
+
+                            <ul style="margin-left:30px;">
+                                <li style="margin-bottom:10px;">
+                                    Any informal conversations, emails, or verbal assurances made by either party shall
+                                    <strong>not be considered valid or enforceable</strong>
+                                    unless formally incorporated through an amendment to this Agreement.
+                                </li>
+                            </ul>
+                            <p>
+                                <strong>C. Supremacy of Agreement</strong>
+                            </p>
+
+                            <p style="margin-left:15px;">
+                                In case of any contradiction between this Agreement and any other verbal or informal
+                                commitments made,
+                                the provisions of this <strong>written Agreement shall prevail</strong>.
+                                Both parties confirm that they are entering into this Agreement willingly,
+                                with full understanding of its terms and implications.
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Page 3: New Additional Content (Clauses 14 to 18) -->
+                    <div class="page" style="page-break-before: always;">
+                        <div class="additional-content"
+                             style="font-family: Arial, sans-serif; margin: 5px; font-size: 15px; line-height: 1.3; margin-top: 0 !important; padding-top: 0 !important;">
+
+
+                            <p>
+                                <strong>SIGNATURES</strong>
+                            </p>
+
+                            <p>
+                                <strong>For The Employer</strong>
+                            </p>
+
+                            <p style="margin-left:30px;">
+                                <span>Name:
+                                    <t t-esc="doc.employee_id.name"/>
+                                </span>
+                                <br/>
+                                <span>Designation:
+                                    <t t-esc="doc.job_id.name"/>
+
+                                </span>
+                                <br/>
+                                Date: _____/_____/________
+                                <br/>
+                                Signature: _________________________
+                                <br/>
+                            </p>
+
+                            <p>
+                                <strong>For The Employee</strong>
+                            </p>
+
+                            <p style="margin-left:30px;">
+                                <br/>
+                                <span>Name:
+                                    <t t-esc="doc.employee_id.name"/>
+                                </span>
+                                <br/>
+                                <span>Designation:
+                                    <t t-esc="doc.job_id.name"/>
+                                </span>
+                                <br/>
+                                Date: _____/_____/________
+                                <br/>
+                                Signature: _______________________________________
+                                <br/>
+                            </p>
+
+                            <p>
+                                <strong>WITNESS 1</strong>
+                            </p>
+
+                            <p style="margin-left:30px;">
+                                Name: _______________________________________
+                                <br/>
+                                Signature: _______________________________________
+                                <br/>
+                            </p>
+
+                            <p>
+                                <strong>WITNESS 2</strong>
+                            </p>
+
+                            <p style="margin-left:30px;">
+                                Name: _______________________________________
+                                <br/>
+                                Signature: _______________________________________
+                                <br/>
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

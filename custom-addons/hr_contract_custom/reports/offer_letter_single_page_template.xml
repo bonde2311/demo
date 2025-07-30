@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="offer_letter_single_page_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size: 16px;">
+                        <style>
+                            .header {
+                            position: relative;
+                            text-align: center;
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                            min-height: 50px;
+                            background-color:red;
+                            }
+                            .header .img1 {
+                            position: absolute;
+                            right: 10px;
+                            top: 0;
+                            padding: 0;
+                            }
+                            .header .img1 img {
+                            width: 1cm;
+                            height: 1cm;
+                            border-radius: 50%;
+                            border: 1px solid #ccc;
+                            }
+                            .offer-letter {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.8;
+                            font-size: 16px;
+                            margin: 0;
+                            padding: 0;
+                            }
+                            .letter-body {
+                            margin-top: 18px;
+                            font-weight: normal;
+                            }
+                            .letter-title {
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: 25px;
+                            text-decoration: underline;
+                            }
+                            .signature {
+                            margin-top: 80px;
+                            font-weight: bold;
+                            }
+                            ul {
+                            margin-left: 20px;
+                            list-style-type: disc;
+                            }
+                        </style>
+
+                        <div class="header">
+                            <div class="img1">
+                                <img src="/hr_contract_custom/static/images/phn.png" alt="Logo"/>
+                            </div>
+                        </div>
+
+                        <div class="offer-letter" style="padding-left: 45px; padding-right: 45px;">
+
+                            <div class="letter-title">Offer Letter</div>
+
+                            <!-- Date -->
+                            <div class="date" style="text-align: right;">
+                                <strong>Date:</strong>
+                                <span t-field="doc.today_date" t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
+                            </div>
+
+
+                            <!-- Letter Body Start -->
+                            <div class="letter-body">
+                                <p>Dear
+                                    <strong>
+                                        <t t-esc="doc.employee_id.name"/>,
+                                    </strong>
+
+                                </p>
+
+                                <p>
+                                    With reference to the discussion had with you, we are pleased to make you an offer
+                                    of Employment with
+                                    <strong>PHN TECHNOLOGY PVT. LTD.</strong>
+                                    as
+                                    <strong>“<t t-esc="doc.job_id.name"/>”.
+                                    </strong>
+
+                                    This offer will become effective from the date of your joining with the Company.
+                                    Your CTC would be
+                                    <strong>Rs.<t t-esc="doc.wage"/>/- per Annum
+                                    </strong>
+                                    (Rupees
+                                    <strong>
+                                        <t t-esc="doc.salary_in_words"/>
+                                    </strong>
+                                    )
+                                    inclusive of all deductions (i.e., IT, TDS, PF, &amp; Professional Tax).
+                                </p>
+
+                                <p>We shall issue a detailed employment letter subject to you producing the following
+                                    Original Documents with photocopies (Originals will be returned after Verification)
+                                    at the time of joining:
+                                </p>
+
+                                <ul>
+                                    <li>Relieving / Experience Letter &amp; Appointment letters from all the previous
+                                        companies and Revision letter from the latest employer (if applicable).
+                                    </li>
+                                    <li>Latest Bank Statement and Pay slips indicating the present salary for the last 3
+                                        months (if applicable).
+                                    </li>
+                                    <li>Form 16 from the last employer (if applicable).</li>
+                                    <li>Education Certificates: 10th Mark Sheet, 12th Mark Sheet, UG and PG Final
+                                        Certificate with Mark Sheets (all semesters).
+                                    </li>
+                                    <li>Any other certificates, if applicable, submit photocopies.</li>
+                                    <li>PAN card copy.</li>
+                                    <li>Passport – Copies of pages with personal details and address and ECNR stamping
+                                        (if available).
+                                    </li>
+                                    <li>4 Passport size and 1 stamp size photographs with white background.</li>
+                                    <li>BCC copy of Resignation mail to be sent to us before joining (if applicable).
+                                    </li>
+                                </ul>
+
+                                <p>
+                                    You will be on probation for a period of 1 Year (One Year) from the date of your
+                                    joining.
+                                </p>
+
+                                <p>
+                                    You are requested to join us by
+                                    <strong>
+                                        <span t-field="doc.employee_id.date_of_joining"
+                                              t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
+                                    </strong>
+                                    and thereafter, the offer stands invalid if you fail to join on the mentioned date
+                                    without any prior notice.
+                                </p>
+
+                                <p>Best Regards,</p>
+                            </div>
+
+                            <!-- Signatures -->
+                            <div class="signature">
+
+                                <!--                                <p>-->
+                                <!--                                    <t t-esc="doc.employee_id.company_id.name"/>-->
+                                <!--                                </p>-->
+                                <p>Administrator<br/>Founder &amp;CEO
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Letter Body End -->
+
+                        <!-- Footer -->
+                        <t t-foreach="docs" t-as="o">
+                            <div t-attf-class="footer o_boxed_footer o_company_#{o.company_id.id}_layout">
+                                <div class="text-center">
+                                    <div t-field="o.company_id.report_footer">Company Report Footer</div>
+                                    <div t-if="report_type == 'pdf'">
+                                        Page:
+                                        <span class="page"/>
+                                        /
+                                        <span class="topage"/>
+                                    </div>
+                                    <div t-if="report_type == 'pdf' and display_name_in_footer" class="text-muted">
+                                        <span t-out="o.name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        <!-- Footer End -->
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="relieving_order_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-size: 18px;">
+                        <style>
+                            .header {
+                            position: relative;
+                            text-align: center;
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                            min-height: 50px;
+                            }
+                            .header .img1 {
+                            position: absolute;
+                            right: 10px;
+                            top: 0;
+                            padding: 0;
+                            }
+                            .header .img1 img {
+                            width: 1cm;
+                            height: 1cm;
+                            border-radius: 50%;
+                            border: 1px solid #ccc;
+                            }
+                            .relieving-letter {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.8;
+                            font-size: 18px;
+                            margin: 0;
+                            padding: 0;
+                            }
+                            .letter-body {
+                            margin-top: 30px;
+                            line-height: 2.0;
+                            font-weight: normal;
+                            }
+                            .relieving-title {
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: 25px;
+                            margin: 30px 0;
+                            text-decoration: underline;
+                            }
+                            .signature {
+                            margin-top: 100px;
+                            margin-bottom: 60px;
+                            font-weight: bold;
+                            }
+                            .footer {
+                            margin-top: 30px;
+                            font-size: 12px;
+                            }
+                        </style>
+
+                        <div class="header">
+                            <div class="img1">
+                                <img src="/hr_contract_custom/static/images/phn.png" alt="Logo"/>
+                            </div>
+                        </div>
+
+                        <div class="relieving-letter" style="padding-left: 45px; padding-right: 45px;">
+                            <!-- Date -->
+                            <div class="date" style="text-align: right; margin-bottom: 15px;">
+                                <strong>Date:</strong>
+                                <span t-field="doc.today_date"
+                                      t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
+                            </div>
+
+                            <!-- Recipient -->
+                            <div style="padding-bottom: 5px;">
+                                <p>To,
+                                    <br/>
+                                    <strong>
+                                        <t t-esc="doc.employee_id.name"/>
+                                    </strong>
+                                    <br/>
+                                    Employee Code:
+                                    <strong>
+                                        <t t-esc="doc.employee_id.barcode"/>
+                                    </strong>
+                                </p>
+                            </div>
+
+                            <!-- Title -->
+                            <div class="relieving-title">RELIEVING ORDER</div>
+
+                            <!-- Letter Body Start -->
+                            <div class="letter-body">
+                                <p>
+                                    <strong>Dear <t t-esc="doc.employee_id.name"/>,
+                                    </strong>
+                                    <br/>
+
+                                    We are in receipt of your resignation letter dated
+                                    <strong><span t-field="doc.date_end"
+                                                  t-options='{"widget": "date", "format": "dd-MM-yyyy"}'/>.
+                                    </strong>
+                                    Your resignation is accepted and you are hereby relieved from the services
+                                    of the organization with effect from the closing hour of
+                                    <strong><span t-field="doc.date_end"
+                                                  t-options='{"widget": "date", "format": "dd-MM-yyyy"}'/>.
+                                    </strong>
+                                </p>
+
+                                <p style="margin-top: 5px;">
+                                    We wish you all the very best in all your future endeavors.
+                                </p>
+                            </div>
+
+                            <!-- Signatures -->
+                            <div class="signature">
+                                <p>Administrator:
+                                    <t t-esc="doc.employee_id.company_id.name"/>
+                                </p>
+
+                                <p style="margin-top: 60px;">HR Manager:
+                                    <t t-esc="doc.employee_id.parent_id.name"/>
+                                </p>
+
+
+                            </div>
+                        </div>
+                        <!-- Letter Body End -->
+
+                        <!-- Footer -->
+                        <t t-foreach="docs" t-as="o">
+                            <div t-attf-class="footer o_boxed_footer o_company_#{o.company_id.id}_layout">
+                                <div class="text-center">
+                                    <div t-field="o.company_id.report_footer">Company Report Footer</div>
+                                    <div t-if="report_type == 'pdf'">
+                                        Page:
+                                        <span class="page"/>
+                                        /
+                                        <span class="topage"/>
+                                    </div>
+                                    <div t-if="report_type == 'pdf' and display_name_in_footer" class="text-muted">
+                                        <span t-out="o.name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

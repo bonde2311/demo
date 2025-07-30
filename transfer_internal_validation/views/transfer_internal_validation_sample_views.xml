@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_picking_form_inherit_receiver" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.receiver</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Add custom fields below partner_id -->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="receiver_id"/>
+                <field name="receiver_confirmation_state" readonly="1"/>
+                <field name="waiting_receiver" readonly="1"/>
+            </xpath>
+
+            <!-- Add "Send to Receiver" button -->
+             <!-- Add "Send to Receiver" button -->
+            <xpath expr="//header/button[@name='action_assign']" position="after">
+                <button name="action_wait_for_receiver"
+                        string="Send to Receiver"
+                        type="object"
+                        class="btn-primary"
+                        groups="base.group_user"
+                        modifiers="{'invisible': [('picking_type_code', '!=', 'internal'), ('state', '!=', 'assigned'), ('state', '=', 'waiting_for_receiver')]}"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
