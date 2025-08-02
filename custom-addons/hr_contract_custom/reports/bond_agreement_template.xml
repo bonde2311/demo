@@ -57,8 +57,9 @@
                             <div class="date">
                                 <strong>
                                     <p>Date:
-                                        <span t-field="doc.today_date"
-                                              t-options="{&quot;widget&quot;: &quot;date&quot;, &quot;format&quot;: &quot;dd-MM-yyyy&quot;}"/>
+                                    <t t-esc="datetime.date.today().strftime('%d-%m-%Y')"/>
+
+
                                     </p>
                                 </strong>
                             </div>
@@ -478,11 +479,11 @@
                                 The Employee shall be entitled to an <strong>Annual Gross Cost to Company (CTC)</strong> of
                                 <strong>
                                     &#8377;
-                                    <t t-esc="doc.wage"/>
+                                    <t t-esc="doc.ctc_annual"/>
                                 </strong>
                                 (Rupees
                                 <strong>
-                                    <t t-esc="doc.salary_in_words"/>
+                                    <t t-esc="doc.ctc_in_words"/>
                                 </strong>
                                 )
                                 . This CTC includes all fixed and

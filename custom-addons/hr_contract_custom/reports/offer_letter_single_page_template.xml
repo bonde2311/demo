@@ -66,7 +66,9 @@
                             <!-- Date -->
                             <div class="date" style="text-align: right;">
                                 <strong>Date:</strong>
-                                <span t-field="doc.today_date" t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
+                               <t t-esc="datetime.date.today().strftime('%d-%m-%Y')"/>
+
+
                             </div>
 
 
@@ -89,11 +91,11 @@
 
                                     This offer will become effective from the date of your joining with the Company.
                                     Your CTC would be
-                                    <strong>Rs.<t t-esc="doc.wage"/>/- per Annum
+                                    <strong>Rs.<t t-esc="doc.ctc_annual"/>/- per Annum
                                     </strong>
                                     (Rupees
                                     <strong>
-                                        <t t-esc="doc.salary_in_words"/>
+                                        <t t-esc="doc.ctc_in_words"/>
                                     </strong>
                                     )
                                     inclusive of all deductions (i.e., IT, TDS, PF, &amp; Professional Tax).

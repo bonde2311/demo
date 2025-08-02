@@ -65,8 +65,9 @@
                             <!-- Date -->
                             <div class="date" style="text-align: right; margin-bottom: 15px;">
                                 <strong>Date:</strong>
-                                <span t-field="doc.today_date"
-                                      t-options='{"widget": "date", "format": "dd/MM/yyyy"}'/>
+                               <t t-esc="datetime.date.today().strftime('%d-%m-%Y')"/>
+
+
                             </div>
 
                             <!-- Recipient -->

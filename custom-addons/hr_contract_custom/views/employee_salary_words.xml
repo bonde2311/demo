@@ -1,18 +1,23 @@
 <odoo>
-    <record id="view_hr_contract_form_inherit_salary_words" model="ir.ui.view">
-        <field name="name">hr.contract.form.inherit.salary.words</field>
+    <record id="view_hr_contract_form_inherit_salary_fields" model="ir.ui.view">
+        <field name="name">hr.contract.form.inherit.salary.fields</field>
         <field name="model">hr.contract</field>
         <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
         <field name="arch" type="xml">
-            <!-- Add salary_in_words below wage field -->
-            <xpath expr="//field[@name='wage']" position="after">
-                <field name="salary_in_words" readonly="1"/>
+
+            <xpath expr="//group[@name='salary_info']" position="after">
+                <group>
+                    <field name="wage_annual"/>
+                    <field name="wage_in_words" readonly="1" colspan="2" style="white-space: normal;"/>
+                    <field name="ctc_monthly"/>
+                    <field name="ctc_annual"/>
+                    <field name="ctc_in_words" readonly="1" colspan="2" style="white-space: normal;"/>
+                </group>
             </xpath>
 
-            <!-- Add today_date field below date_end -->
-            <xpath expr="//field[@name='date_end']" position="after">
-                <field name="today_date" readonly="1"/>
-            </xpath>
+<!--            <xpath expr="//field[@name='date_end']" position="after">-->
+<!--                <field name="today_date" readonly="1"/>-->
+<!--            </xpath>-->
         </field>
     </record>
 </odoo>
